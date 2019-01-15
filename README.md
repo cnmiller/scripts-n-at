@@ -16,3 +16,8 @@ masscan -iL input_list.txt -oG output_list.txt --rate=10000 -p 1,3-4,6-7,9,13,17
 ```
 cat masscan.gnmap | sed '/ 443/d' | grep 80 | cut -d" " -f2 | sed 's|^|http://|' > http.txt && cat masscan.gnmap | grep 443 | cut -d" " -f2 | sed 's|^|https://|' >> http.txt
 ```
+
+### Get HTTP & HTTPS (ALL PORTS) List from Masscan Output
+```
+cat masscan.gnmap | cut -d" " -f2,4 | sed 's|^|https://|' | cut -d"/" -f1-3 | sed 's/ /:/' > screenshot.txt && cat masscan.gnmap | cut -d" " -f2,4 | sed 's|^|http://|' | cut -d"/" -f1-3 | sed 's/ /:/' >> screenshot.txt
+```
