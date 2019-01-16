@@ -21,3 +21,7 @@ cat masscan.gnmap | sed '/ 443/d' | grep 80 | cut -d" " -f2 | sed 's|^|http://|'
 ```
 cat masscan.gnmap | cut -d" " -f2,4 | sed 's|^|https://|' | cut -d"/" -f1-3 | sed 's/ /:/' > screenshot.txt && cat masscan.gnmap | cut -d" " -f2,4 | sed 's|^|http://|' | cut -d"/" -f1-3 | sed 's/ /:/' >> screenshot.txt
 ```
+
+### Take Filenames from HTTPScreenshot and Convet Them into Clean URLs
+```
+ls | grep yahoo.com | dos2unix | sed 's/\%3A/:/g' | sed 's|\%2F|/|g' | sed 's/.html//'
