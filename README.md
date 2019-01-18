@@ -25,6 +25,7 @@ cat masscan.gnmap | cut -d" " -f2,4 | sed 's|^|https://|' | cut -d"/" -f1-3 | se
 ### Take Filenames from HTTPScreenshot and Convet Them into Clean URLs
 ```
 ls | grep yahoo.com | dos2unix | sed 's/\%3A/:/g' | sed 's|\%2F|/|g' | sed 's/.html//'
+```
 
 ### Convert Raw Cerstream Logs (certs.txt) to Cleaned Subdomain List (certs_clean.txt)
 ```
