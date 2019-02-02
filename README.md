@@ -31,3 +31,12 @@ ls | grep yahoo.com | dos2unix | sed 's/\%3A/:/g' | sed 's|\%2F|/|g' | sed 's/.h
 ```
 cat certs.txt | gsed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g" | cut -d" " -f4 | rev | cut -d"." -f2- | rev | sed '/*/d' | sed '/www./d' | sed '/.com/d' > certs_clean.txt
 ```
+
+### Get Account Information Associated with Twilio API Credentials using curl
+```
+curl 'https://api.twilio.com/2010-04-01/Accounts/{TWILIO_ACCOUNT_SID}.json' -u {TWILIO_ACCOUNT_SID}:{TWILIO_AUTH_TOKEN}
+```
+### Crop Directory Full of .png Images
+```
+find ./ -name "*.png" -exec convert {} -trim out/{} \;
+```
