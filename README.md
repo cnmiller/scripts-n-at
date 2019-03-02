@@ -46,3 +46,7 @@ find ./ -name "*.png" -exec convert {} -trim out/{} \;
 ```
 shodan search "hostname:example.com" --fields hostnames | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"
 ```
+### Create Wordlist from List of Hostnames for Domain from Shodan CLI
+```
+shodan search "hostname:example.com" --fields hostnames | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g" | tr . \\n | sort -u
+```
