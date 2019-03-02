@@ -36,7 +36,13 @@ cat certs.txt | gsed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g" | cut -d" " -f4 | rev | 
 ```
 curl 'https://api.twilio.com/2010-04-01/Accounts/{TWILIO_ACCOUNT_SID}.json' -u {TWILIO_ACCOUNT_SID}:{TWILIO_AUTH_TOKEN}
 ```
+
 ### Crop Directory Full of .png Images
 ```
 find ./ -name "*.png" -exec convert {} -trim out/{} \;
+```
+
+### Get List of Hostnames for Domain from Shodan CLI
+```
+shodan search "hostname:example.com" --fields hostnames | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"
 ```
