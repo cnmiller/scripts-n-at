@@ -50,3 +50,7 @@ shodan search "hostname:example.com" --fields hostnames | sed -r "s/\x1B\[([0-9]
 ```
 shodan search "hostname:example.com" --fields hostnames | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g" | tr . \\n | sort -u
 ```
+### Sort a List to Get the Most Common 1000000 Lines
+```
+sort test.txt | uniq -c | sort -rn | head -n 1000000 | sed -E 's/^ *[0-9]+ //g'
+```
