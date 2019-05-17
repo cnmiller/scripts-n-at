@@ -56,5 +56,5 @@ sort test.txt | uniq -c | sort -rn | head -n 1000000 | sed -E 's/^ *[0-9]+ //g'
 ```
 ### Sort GoBuster Results, Removing Any Sizes That Appear More That 25 Times
 ```
-grep "Size: " gobuster_output.txt | cut -d" " -f4-5 | sort | uniq -c | sort -n | awk '$1 > 25  {print ;}' | sed '/200)/d' | cut -d"[" -f2 | cut -d"]" -f1 | paste -sd '|' | xargs -I{} grep -v -E {} gobuster_output.txt
+grep "Size: " gobuster_output.txt | cut -d" " -f4-5 | sort | uniq -c | sort -n | awk '$1 > 25  {print ;}' | sed '/200)/d' | cut -d"[" -f2 | cut -d"]" -f1 | paste -sd '|' | xargs -I{} grep -v -E {} gobuster_output.txt | sed '/Wildcard/d'
 ```
