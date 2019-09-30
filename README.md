@@ -62,3 +62,8 @@ grep "Size: " gobuster_output.txt | cut -d" " -f4-5 | sort | uniq -c | sort -n |
 ```
 perl -nlwe "print for m/\w{2,}/g" < javascript.js | sort -u > javascript_strings.txt
 ```
+### Parse Endpoints from swagger.json Document
+```
+curl http://xxx.xxx.xxx.xxx/swagger.json | grep '"/' | cut -d'"' -f2 | sort -u >> wordlist.txt 
+```
+
