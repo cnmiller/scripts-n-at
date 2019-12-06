@@ -1,0 +1,2 @@
+#Manually spray an application (source: https://twitter.com/hakluke/status/1199184082745229312)
+```'"><svg/onload=alert()>{{7*7}}```
