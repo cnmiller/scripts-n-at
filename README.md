@@ -66,4 +66,7 @@ perl -nlwe "print for m/\w{2,}/g" < javascript.js | sort -u > javascript_strings
 ```
 curl http://xxx.xxx.xxx.xxx/swagger.json | grep '"/' | cut -d'"' -f2 | sort -u >> wordlist.txt 
 ```
-
+### Cat File of URLs through proxy (Burp)
+```
+cat RESULTS.txt | concurl -c 10 -d 10 -- -k --proxy http://127.0.0.1:8080 -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98"
+``
