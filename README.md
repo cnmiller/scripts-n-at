@@ -69,4 +69,9 @@ curl http://xxx.xxx.xxx.xxx/swagger.json | grep '"/' | cut -d'"' -f2 | sort -u >
 ### Cat File of URLs through proxy (Burp)
 ```
 cat RESULTS.txt | concurl -c 10 -d 10 -- -k --proxy http://127.0.0.1:8080 -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98"
-``
+```
+
+###  Cat File of IPs through zgrab to get certificates
+```
+sudo cat ips.txt | zgrab2 tls port 443 2>/dev/null | jq -r -c '.ip + ":" +  .data.tls.result.handshake_log.server_certificates.certificate.parsed.subject.common_name[]' 2>/dev/null | tee results.txt
+```
