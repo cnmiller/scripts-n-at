@@ -75,3 +75,8 @@ cat RESULTS.txt | concurl -c 10 -d 10 -- -k --proxy http://127.0.0.1:8080 -A "Mo
 ```
 sudo cat ips.txt | zgrab2 tls port 443 2>/dev/null | jq -r -c '.ip + ":" +  .data.tls.result.handshake_log.server_certificates.certificate.parsed.subject.common_name[]' 2>/dev/null | tee results.txt
 ```
+
+###  Get new domains from certstream
+```
+grep -F -f all_program_domains.txt certstream_domains.txt | sed '/aws/d' | sed '/google/d' | sort -u > certstream_domains_new.txt && grep -Fvxf certstream_program_sorted_uniq.txt certstream_domains_new.txt | tee -a certstream_program_sorted_uniq.txt && echo "" > certstream_domains.txt
+```
