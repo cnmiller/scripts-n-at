@@ -83,5 +83,5 @@ grep -F -f all_program_domains.txt certstream_domains.txt | sed '/aws/d' | sed '
 
 ### Example Ffuf String
 ```
-/ffuf  -recursion -w wordlist.txt -D -e php,html,xml,jsp,do,action,js,txt,json,asp,cfm -ac -recursion-depth 3 -H 'X-Forwarded-For: 127.0.0.1' -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:74.0) Gecko/20100101 Firefox/74.0' -u https://example.com/FUZZ -fw 1,4
+./ffuf  -recursion -w wordlist.txt -D -e php,html,xml,jsp,do,action,js,txt,json,asp,cfm -ac -recursion-depth 3 -H 'X-Forwarded-For: 127.0.0.1' -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:74.0) Gecko/20100101 Firefox/74.0' -u https://example.com/FUZZ -fw 1,4
 ```
